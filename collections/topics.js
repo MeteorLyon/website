@@ -27,3 +27,9 @@ Topics.after.insert(function(userId, doc) {
 Topics.before.insert(function (userId, doc) {
   doc.createdAt = moment().toDate();
 });
+
+Topics.after.remove(function (userId, doc) {
+  Activities.remove({
+    subjectId: doc._id
+  });
+});

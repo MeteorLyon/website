@@ -16,7 +16,20 @@
       "group_urlname" : "Meteor-Las-Vegas"
     }
   },
+  "coupons": {
+    "mdb": {
+      "state": true,
+      "title": "Participate to Meteor Day 2014",
+      "points": 200
+    },
+    "mda": {
+      "state": false,
+      "title": "Participate to Meteor Day 2013",
+      "points": 20
+    }
+  },
   "public" : {
+    "default_lang": "en",
     "meetup" : {
       "group_name" : "Meteor Vegas",
       "group_urlname" : "Meteor-Las-Vegas",
@@ -33,16 +46,20 @@
         "title" : "Differential",
         "url" : "http://differential.io",
         "image" : "/sponsors/differential.png"
-      },
+      }
+    ],
+    "projects" : [
+      {
+        "title" : "La Commune",
+        "url" : "http://www.lacommune.ca",
+        "image" : "/sponsors/lacommune.jpg"
+      }
+    ],
+    "subcontractors" : [
       {
         "title" : "Modulus",
         "url" : "http://modulus.io",
         "image" : "/sponsors/modulus.png"
-      },
-      {
-        "title" : "#VegasTech",
-        "url" : "http://vegastech.com",
-        "image" : "/sponsors/vegastech.png"
       }
     ]
   }
