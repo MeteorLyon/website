@@ -132,15 +132,15 @@ Meteor.methods({
 						}
 					});
 				} else {
-					var meetupToInsert = {
-						title: meetupData['name'],
-						description: meetupData['description'],
-						meetupId: meetupData['id'],
-						meetupUrl: meetupData['event_url'],
-						featured : meetupData['featured'],
-						dateTime: moment(meetupData['time']).toDate()};
+					if (meetupData && meetupData['venue']) {
+						var meetupToInsert = {
+                                                title: meetupData['name'],
+                                                description: meetupData['description'],
+                                                meetupId: meetupData['id'],
+                                                meetupUrl: meetupData['event_url'],
+                                                featured : meetupData['featured'],
+                                                dateTime: moment(meetupData['time']).toDate()};
 
-					if (meetupData['venue']) {
 						_.extend(meetupToInsert, {
 							location: {
 								name: meetupData['venue']['name'],
@@ -150,9 +150,9 @@ Meteor.methods({
 								description: meetupData['how_to_find_us']
 							}
 						});
+						
+						meetupId = Meetups.insert(meetupToInsert);
 					};
-
-					meetupId = Meetups.insert(meetupToInsert);
 				}
 
 				Meteor.call('MeetupAPI', 'getRSVPs', {"event_id": meetupData['id'], "rsvp": "yes"}, function(err, response) {
